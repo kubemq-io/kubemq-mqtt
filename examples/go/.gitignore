@@ -1,0 +1,20 @@
+# Compiled example binaries.
+#
+# `go build` / `go run`-leftover outputs are named after the example's leaf
+# directory. Depending on where `go build` is invoked they land either in
+# examples/go/ or in the example's own subdirectory (e.g.
+# events/wildcard-subscribe/wildcard-subscribe). These are extension-less
+# Mach-O / ELF files the repo-root .gitignore's *.exe / *.dylib rules do NOT
+# catch. The patterns below are intentionally unanchored so each known example
+# binary is ignored at any depth.
+ack-and-redelivery
+auth-jwt
+basic-pubsub
+command-round-trip
+mqtt-v311-vs-v5
+query-round-trip
+shared-consume
+start-new-only
+tls
+websocket
+wildcard-subscribe

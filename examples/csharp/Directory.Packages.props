@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="MQTTnet" Version="4.3.7.1207" />
+    <PackageVersion Include="MQTTnet.Extensions.ManagedClient" Version="4.3.7.1207" />
+  </ItemGroup>
+</Project>

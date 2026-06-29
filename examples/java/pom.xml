@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.kubemq.examples</groupId>
+  <artifactId>kubemq-mqtt-examples</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>events/basic-pubsub</module>
+    <module>events/wildcard-subscribe</module>
+    <module>events-store/start-new-only</module>
+    <module>queues/shared-consume</module>
+    <module>queues/ack-and-redelivery</module>
+    <module>rpc/query-round-trip</module>
+    <module>rpc/command-round-trip</module>
+    <module>connectivity/tls</module>
+    <module>connectivity/websocket</module>
+    <module>connectivity/auth-jwt</module>
+    <module>protocol/mqtt-v311-vs-v5</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <paho.mqttv5.version>1.2.5</paho.mqttv5.version>
+    <paho.mqttv3.version>1.2.5</paho.mqttv3.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.eclipse.paho</groupId>
+        <artifactId>org.eclipse.paho.mqttv5.client</artifactId>
+        <version>${paho.mqttv5.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.paho</groupId>
+        <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+        <version>${paho.mqttv3.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

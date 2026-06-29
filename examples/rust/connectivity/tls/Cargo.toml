@@ -1,0 +1,11 @@
+[package]
+name = "connectivity-tls"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rumqttc = { workspace = true }
+tokio = { workspace = true }
+uuid = { workspace = true }
+rustls = { workspace = true }
+rustls-native-certs = { workspace = true }

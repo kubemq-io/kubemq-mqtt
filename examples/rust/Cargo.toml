@@ -1,0 +1,23 @@
+[workspace]
+members = [
+  "events/basic-pubsub",
+  "events/wildcard-subscribe",
+  "events-store/start-new-only",
+  "queues/shared-consume",
+  "queues/ack-and-redelivery",
+  "rpc/query-round-trip",
+  "rpc/command-round-trip",
+  "connectivity/tls",
+  "connectivity/websocket",
+  "connectivity/auth-jwt",
+  "protocol/mqtt-v311-vs-v5",
+]
+resolver = "2"
+
+[workspace.dependencies]
+rumqttc = { version = "0.25", features = ["websocket"] }
+tokio = { version = "1", features = ["full"] }
+bytes = "1"
+uuid = { version = "1", features = ["v4"] }
+rustls = "0.23"
+rustls-native-certs = "0.7"

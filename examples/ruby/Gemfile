@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+# MQTT 3.1.1 client (njh/ruby-mqtt). Latest stable as of 2026-06.
+# Floor: >= 0.6.0 (spec D2/D6). Baseline floor documented; bump to latest stable at implementation.
+gem "mqtt", "~> 0.7"

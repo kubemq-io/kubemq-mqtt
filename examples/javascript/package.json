@@ -1,0 +1,18 @@
+{
+  "name": "kubemq-mqtt-examples-js",
+  "version": "1.0.0",
+  "description": "KubeMQ MQTT connector examples in TypeScript (MQTT.js)",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "run-example": "npx tsx"
+  },
+  "dependencies": {
+    "mqtt": "^5.15.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}

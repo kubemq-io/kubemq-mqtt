@@ -1,0 +1,9 @@
+[package]
+name = "mqtt-v311-vs-v5"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rumqttc = { workspace = true }
+tokio = { workspace = true }
+uuid = { workspace = true }
