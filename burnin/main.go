@@ -79,9 +79,11 @@ func main() {
 		}
 	}
 
-	<-sigCh
-	logger.Info("shutdown signal received")
+	// Wait for either a signal or, when -run was given with a bounded duration,
+	// the run completing on its own.
+	waitForExit(eng, sigCh, cfg, *runFlag)
 
+	logger.Info("shutting down")
 	passed := eng.GracefulShutdown()
 
 	summary, verdict := adapter.RunReport()
@@ -105,6 +107,27 @@ func main() {
 		os.Exit(2)
 	}
 	os.Exit(0)
+}
+
+// waitForExit blocks until a termination signal arrives, or — for a bounded
+// -run invocation — until the engine reaches a terminal state on its own.
+func waitForExit(eng *engine.Engine, sigCh <-chan os.Signal, cfg *config.Config, autoRun bool) {
+	if autoRun && cfg.DurationParsed > 0 {
+		ticker := time.NewTicker(500 * time.Millisecond)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-sigCh:
+				return
+			case <-ticker.C:
+				switch eng.State() {
+				case engine.StateStopped, engine.StateError:
+					return
+				}
+			}
+		}
+	}
+	<-sigCh
 }
 
 // engineAdapter bridges engine.Engine to server.RunController.
