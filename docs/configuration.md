@@ -87,28 +87,28 @@ These rules are enforced at startup (`MqttConfig.Validate()`):
 
 ```bash
 # Default — MQTT on 1883, WebSocket on 8083, TLS listener present but inactive
-docker run -d -p 1883:1883 -p 8083:8083 kubemq/kubemq
+docker run -d -p 1883:1883 -p 8083:8083 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
 
 # Disable MQTT entirely
-docker run -d kubemq/kubemq -e CONNECTORSMQTT_ENABLE=false
+docker run -d europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_ENABLE=false
 
 # Disable only the WebSocket listener
-docker run -d -p 1883:1883 kubemq/kubemq -e CONNECTORSMQTT_WS_PORT=""
+docker run -d -p 1883:1883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_WS_PORT=""
 
 # Change DefaultPattern so prefixless topics route to Events-Store
-docker run -d -p 1883:1883 kubemq/kubemq -e CONNECTORSMQTT_DEFAULT_PATTERN=store
+docker run -d -p 1883:1883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_DEFAULT_PATTERN=store
 
 # Reject prefixless topics entirely (PUBACK 0x90 / SUBACK 0x8F)
-docker run -d -p 1883:1883 kubemq/kubemq -e CONNECTORSMQTT_DEFAULT_PATTERN=none
+docker run -d -p 1883:1883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_DEFAULT_PATTERN=none
 
 # Restrict to MQTT 5.0 only (reject 3.1.1 clients)
-docker run -d -p 1883:1883 kubemq/kubemq -e CONNECTORSMQTT_CAPABILITIES_MIN_PROTOCOL_VERSION=5
+docker run -d -p 1883:1883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_CAPABILITIES_MIN_PROTOCOL_VERSION=5
 
 # Increase RPC pending limit
-docker run -d -p 1883:1883 kubemq/kubemq -e CONNECTORSMQTT_RPC_MAX_PENDING=4096
+docker run -d -p 1883:1883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_RPC_MAX_PENDING=4096
 
 # Lower queue ack timeout to 10 seconds
-docker run -d -p 1883:1883 kubemq/kubemq -e CONNECTORSMQTT_QUEUE_ACK_TIMEOUT_SECONDS=10
+docker run -d -p 1883:1883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest -e CONNECTORSMQTT_QUEUE_ACK_TIMEOUT_SECONDS=10
 ```
 
 ## TOML Configuration (alternative to env vars)

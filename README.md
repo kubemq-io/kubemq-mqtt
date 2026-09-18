@@ -28,7 +28,7 @@ docker run -d \
   -p 8883:8883 \
   -p 8083:8083 \
   -p 50000:50000 \
-  kubemq/kubemq
+  europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
 ```
 
 > The connector is on by default (`CONNECTORSMQTT_ENABLE=true`); set `CONNECTORSMQTT_ENABLE=false` to disable it.

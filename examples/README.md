@@ -10,7 +10,7 @@ The connector bridges MQTT clients to KubeMQ patterns by topic prefix: `events/`
 
 1. Start KubeMQ with the MQTT connector enabled (it is enabled by default on port 1883):
    ```bash
-   docker run -d -p 1883:1883 -p 8883:8883 -p 8083:8083 kubemq/kubemq
+   docker run -d -p 1883:1883 -p 8883:8883 -p 8083:8083 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
    ```
 
 2. Set the broker URL (optional; defaults to `tcp://localhost:1883`). The scheme selects the

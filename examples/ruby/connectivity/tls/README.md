@@ -101,7 +101,7 @@ docker run -d \
   -v /path/to/certs:/certs \
   -e KUBEMQCONFIG_SECURITY_CERTFILE=/certs/server.crt \
   -e KUBEMQCONFIG_SECURITY_KEYFILE=/certs/server.key \
-  kubemq/kubemq
+  europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
 ```
 
 See `docs/guides/tls-and-websocket.md` for full TLS and mTLS configuration details.

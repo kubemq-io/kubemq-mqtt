@@ -19,7 +19,7 @@ docker run -d \
   -p 8083:8083 \
   -p 50000:50000 \
   -p 8080:8080 \
-  kubemq/kubemq
+  europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
 ```
 
 To expose all three listeners: TCP on `1883`, TLS on `8883` (inactive without a certificate), WebSocket on `8083`.
@@ -27,7 +27,7 @@ To expose all three listeners: TCP on `1883`, TLS on `8883` (inactive without a 
 To **disable** the MQTT connector entirely:
 
 ```bash
-docker run -d ... -e CONNECTORSMQTT_ENABLE=false kubemq/kubemq
+docker run -d ... -e CONNECTORSMQTT_ENABLE=false europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
 ```
 
 Verify the broker accepts connections:

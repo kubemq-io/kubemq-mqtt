@@ -10,7 +10,7 @@ All Ruby examples use the [`mqtt` gem](https://github.com/njh/ruby-mqtt) (njh/ru
 - Bundler (`gem install bundler`)
 - KubeMQ server running with the MQTT connector enabled (port 1883 by default):
   ```bash
-  docker run -d -p 1883:1883 -p 8883:8883 kubemq/kubemq
+  docker run -d -p 1883:1883 -p 8883:8883 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
   ```
 - MQTT library: `mqtt` gem >= 0.6.0 (pinned to `~> 0.7` in this Gemfile)
 
